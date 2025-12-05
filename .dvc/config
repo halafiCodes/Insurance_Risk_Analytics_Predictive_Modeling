@@ -1,4 +1,4 @@
 [core]
     remote = localstorage
 ['remote "localstorage"']
-    url = ../UsersweldiDesktopweek3dvc_remote_storage
+    url = C:/Users/weldi/Desktop/week3/dvc_remote_storage

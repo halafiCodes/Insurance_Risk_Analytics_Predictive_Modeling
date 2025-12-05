@@ -1,0 +1,12 @@
+# DVC ignores
+/data/*
+!/data/*.dvc
+/models/
+/reports/
+/.dvc/cache/
+
+# Ignore Python specific files
+*.pyc
+__pycache__/
+venv/
+.venv/

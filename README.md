@@ -1,114 +1,182 @@
 
-# **Task 1 – Git, GitHub & Exploratory Data Analysis (EDA)**
 
-## **1.1 Git and GitHub**
+## 📌 **Task 1 — Git, GitHub, EDA & Statistics**
 
-This task focuses on setting up a proper version-controlled environment for the project and building clean development workflows.
+### **1.1 Git and GitHub**
 
-### ✅ **Tasks Completed**
+This project follows best practices for version control and collaborative analytics.
 
-* Created a GitHub repository for the week’s challenge
-* Set up Git version control following best practices
-* Added a clear and professional README
-* Implemented CI/CD using GitHub Actions
-* Created a dedicated branch named **`task-1`** for all Day-1 work
-* Made multiple commits with descriptive commit messages
+#### **What was done**
 
-### **Key Performance Indicators (KPIs)**
+* Created GitHub repository for the challenge
+* Added a clear project structure
+* Setup Git version control workflow
+* Created a new branch: `task-1`
+* Performed frequent, descriptive commits
+* Added a README and development documentation
+* (Optional) Setup CI/CD workflow using GitHub Actions
 
-* Proper development environment setup
-* Demonstration of Git skills
-* Frequent, meaningful commits
-* Clean repository organization
+#### **Key Skills Demonstrated**
 
----
-
-## **1.2 Project Planning – Exploratory Data Analysis (EDA)**
-
-The goal of EDA is to understand the structure, quality, and patterns within the insurance dataset to guide subsequent statistical testing and modeling.
-
-### ✅ **Data Understanding**
-
-* Reviewed dataset structure
-* Identified numerical, categorical, and date-related fields
-* Assessed variable meanings (premium, claims, risk indicators, demographics, auto attributes, etc.)
+* Git branching strategy
+* Version control best practices
+* CI/CD fundamentals
+* Professional repository structure
 
 ---
 
-## **EDA Tasks Completed**
+### **1.2 Exploratory Data Analysis (EDA) & Statistical Understanding**
 
-### **🔹 Data Summarization**
+#### **Objectives**
 
-* Computed descriptive statistics for numerical features such as:
+Develop a foundational understanding of the dataset and extract actionable insights about risk, claims, and premium behavior.
+
+#### **Work Completed**
+
+### **✔ Data Understanding**
+
+* Reviewed structure of 70+ columns: client, vehicle, location, plan, and claims
+* Verified data types and converted to correct formats (datetime, categorical, numeric)
+
+### **✔ Data Quality Assessment**
+
+* Checked for missing values
+* Identified inconsistencies and outliers
+* Verified duplicate records
+
+### **✔ Data Summarization**
+
+* Generated descriptive statistics for:
 
   * `TotalPremium`
   * `TotalClaims`
-  * `CalculatedPremiumPerTerm`
+  * `SumInsured`
   * `CustomValueEstimate`
-* Inspected distributions, central tendencies, and variability
-* Reviewed data types and confirmed proper formatting
+  * Other numeric columns
 
-### **🔹 Data Quality Assessment**
+### **✔ Univariate Analysis**
 
-* Checked for:
+* Plotted:
 
-  * Missing values
-  * Duplicates
-  * Incorrect data types
-  * Out-of-range values
+  * Histograms (premium, claims, value estimates)
+  * Bar charts for categorical features (Province, Gender, VehicleType)
 
-### **🔹 Univariate Analysis**
-
-* Histograms for numerical variables
-* Bar plots for categorical variables
-* Distribution checks for:
-
-  * Provinces
-  * VehicleType
-  * Gender
-  * Postal/Zip codes
-
-### **🔹 Bivariate / Multivariate Analysis**
+### **✔ Bivariate & Multivariate Analysis**
 
 * Explored correlations between:
 
-  * `TotalPremium` vs `TotalClaims`
-  * Monthly trends by `TransactionMonth`
-  * Risk variations across provinces, gender, vehicle type
-* Generated correlation matrix
+  * TotalPremium vs TotalClaims
+  * Claims behavior by ZipCode
+  * Loss Ratio by Province, Gender, VehicleType
 
-### **🔹 Geographic & Segment Comparison**
+* Used:
 
-* Compared risk metrics across:
+  * Scatter plots
+  * Box plots
+  * Correlation matrices
 
-  * Provinces
-  * Vehicle makes/models
-  * Postal codes
+### **✔ Outlier Detection**
 
-### **🔹 Outlier Detection**
+* Box plots for extreme claim amounts
+* Distribution analysis for high-value vehicles
 
-* Box plots for:
+### **✔ Required Visualizations**
 
-  * `TotalClaims`
-  * `CustomValueEstimate`
-  * `CalculatedPremiumPerTerm`
+Produced **3 insightful plots** highlighting:
 
-### **🔹 Visualizations**
-
-Created **3+ clear and insightful visualizations** highlighting:
-
-* Loss Ratio patterns
-* Province-wise differences
-* Claim severity trends
-* VehicleType risk distributions
+1. Loss Ratio by Province
+2. Distribution of Total Claims
+3. Relationship between Premiums and Claims
 
 ---
 
-## **Guiding Questions Addressed**
+---
 
-* What is the overall **Loss Ratio** and how does it vary by Province, Gender, and VehicleType?
-* Are there outliers affecting claim or premium distributions?
-* Are there time-based trends over the 18-month period?
-* Which makes/models show highest claim severity?
+# **Task 2 — Data Version Control (DVC)**
+
+Establishing a **reproducible, auditable** data pipeline using DVC.
+
+## 🎯 **Objectives**
+
+Ensure that datasets and results can be precisely reproduced at any time — a critical requirement in insurance and finance.
 
 ---
+
+## ✔ **Work Completed**
+
+### **1. Installed DVC**
+
+```bash
+pip install dvc
+```
+
+### **2. Initialized DVC inside the project**
+
+```bash
+dvc init
+```
+
+### **3. Created Local Remote Storage**
+
+```bash
+mkdir dvc_remote_storage
+dvc remote add -d local_remote dvc_remote_storage/
+```
+
+### **4. Tracked Data Using DVC**
+
+```bash
+dvc add <your_dataset.csv>
+```
+
+This generates a `.dvc` file linked to dataset metadata.
+
+### **5. Committed DVC Files to Git**
+
+```bash
+git add .
+git commit -m "Initialize DVC and track dataset"
+```
+
+### **6. Pushed Data to Local Remote**
+
+```bash
+dvc push
+```
+
+---
+
+## ✔ **Task 2 Requirements Completed**
+
+* Merged `task-1` into `main` via Pull Request
+* Created `task-2` branch
+* Installed & configured DVC
+* Set up local remote storage
+* Added dataset to DVC
+* Committed `.dvc` files
+* Pushed dataset to remote storage
+
+---
+
+## 📁 **Project Structure (Up to Task 2)**
+
+```
+├── data/
+│   ├── raw/
+│   │   └── insurance_data.csv
+│   └── insurance_data.csv.dvc
+├── dvc_remote_storage/
+├── notebooks/
+│   └── eda_task1.ipynb
+├── src/
+│   ├── eda/
+│   └── utils/
+├── .dvc/
+├── .gitignore
+├── README.md
+└── requirements.txt
+```
+
+
+
+
